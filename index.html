@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+    <script>
+        // setTimeout(function () {
+        //     console.log("First");
+        //     setTimeout(function () {
+        //         console.log("Second");
+        //         setTimeout(function () {
+        //             console.log("Third");
+        //         }, 3000);
+        //     }, 4000);
+        // }, 1000);
+
+        let inputs = document.querySelectorAll('input');
+        // let n = 0;
+
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+            let n = Math.floor(Math.random() * 10)
+            while (arr.indexOf(n) >= 0) {
+                console.log('-------------------')
+                n = Math.floor(Math.random() * 10)
+            }
+            arr[i] = n;
+        }
+        console.log(arr)
+
+        console.log(arr.indexOf(1))
+
+        // arr = arr.filter(val => {
+        //     return val != 1
+        // })
+        // console.log(arr)
+
+
+        let number = Math.floor(Math.random() * 10)
+
+
+        new Promise(function (resolve, reject) {
+            let timer = setInterval(function () {
+                number = Math.floor(Math.random() * arr.length)
+                inputs[0].value = arr[number]
+
+                setTimeout(function () {
+                    clearInterval(timer)
+                    resolve(number);
+                }, 1000);
+            }, 50)
+        }).then(function (v) {
+            arr = arr.filter(val => {
+                return val != arr[v]
+            })
+            // arr.push(number)
+            console.log(arr)
+            console.log('============================')
+            return new Promise(function (resolve, reject) {
+                let timer = setInterval(function () {
+                    number = Math.floor(Math.random() * arr.length)
+                    inputs[1].value = arr[number]
+                    // debugger
+                    setTimeout(function () {
+                        clearInterval(timer)
+                        resolve(number);
+                    }, 1000);
+
+                }, 50)
+            })
+        }).then(function (v) {
+            arr = arr.filter(val => {
+                return val != arr[v]
+            })
+            // arr.push(number)
+            console.log(arr)
+            console.log('============================')
+            return new Promise(function (resolve, reject) {
+                let timer = setInterval(function () {
+                    number = Math.floor(Math.random() * arr.length)
+                    inputs[2].value = arr[number]
+
+                    setTimeout(function () {
+                        clearInterval(timer)
+                        resolve(number);
+                        // console.log(n)
+                    }, 1000);
+
+                }, 50)
+            })
+        }).then(function (v) {
+            arr = arr.filter(val => {
+                return val != arr[v]
+            })
+            // arr.push(number)
+            console.log(arr)
+            console.log('============================')
+            return new Promise(function (resolve, reject) {
+                let timer = setInterval(function () {
+                    number = Math.floor(Math.random() * arr.length)
+                    inputs[3].value = arr[number]
+
+                    setTimeout(function () {
+                        clearInterval(timer)
+                        resolve(number);
+                        // console.log(n)
+                    }, 1000);
+
+                }, 50)
+            })
+        }).then(function (v) {
+            arr = arr.filter(val => {
+                return val != arr[v]
+            })
+            // arr.push(number)
+            console.log(arr)
+            console.log('============================')
+            return new Promise(function (resolve, reject) {
+                let timer = setInterval(function () {
+                    number = Math.floor(Math.random() * arr.length)
+                    inputs[4].value = arr[number]
+
+                    setTimeout(function () {
+                        clearInterval(timer)
+                        resolve(number);
+                        // console.log(n)
+                    }, 1000);
+
+                }, 50)
+            })
+        })
+
+
+
+
+
+
+        // new Promise(function (resolve, reject) {
+
+        //     let timer;
+        //     timer = setInterval(function () {
+        //         setTimeout(function () {
+        //             clearInterval(timer)
+        //         }, 1000);
+        //         number = Math.floor(Math.random() * 10)
+        //         // console.log(number)
+        //         inputs[0].value = number
+        //     }, 50)
+
+        //     // console.log("First");
+        //     resolve();
+
+        // }).then(function () {
+        //     return new Promise(function (resolve, reject) {
+        //         setTimeout(function () {
+        //             console.log("Second");
+        //             resolve();
+        //         }, 4000);
+        //     });
+        // }).then(function () {
+        //     setTimeout(function () {
+        //         console.log("Third");
+        //     }, 3000);
+        // });
+
+
+    </script>
+</body>
+
+</html>
